@@ -149,3 +149,23 @@ git branch -d <branch>
 # apaga um branch mesmo que ainda não tenha sido feito o merge desse branch
 git branch -D <branch>
 ```
+
+## Merging
+
+```sh
+# faz merge de um branch com o branch atual
+git merge <branch>
+
+# faz os merge e permite informar uma mensagem para o commit do merge
+git merge -m <branch>
+
+# faz merge sem fast forward. Isso sempre gera um commit de merge
+git merge --no-ff <branch>
+
+# aborta o merge após ocorrer algum conflito.
+# volta tudo no estado anterior ao comando de merge.
+git merge --abort
+
+# prossegue com o merge após ocorrer algum conflito
+git merge --continue
+```
