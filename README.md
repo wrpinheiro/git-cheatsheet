@@ -38,13 +38,6 @@ git add .
 # mostra o status atual dos arquivos no diretório de trabalho na área de stage
 git status
 
-# mostra as diferenças entre os arquivos no diretório de trabalho e na área de stage
-git diff
-
-# mostra as diferenças entre os arquivos na área de stage e os que foram salvos no último commit
-git diff --cached
-git diff --staged
-
 # move um arquivo
 git mv <source> <target>
 
@@ -55,5 +48,60 @@ git rm <arquivo>
 git rm --cached <arquivo>
 ```
 
+## Visualizando as alterações 
 
+```sh
+# mostra as diferenças entre os arquivos no diretório de trabalho e na área de stage
+git diff
 
+# diferenças entre o intervalo de commits sha1-inicial e sha1..final
+git diff <sha1-inicial>..<sha1..final>
+
+# mostra as diferenças entre os arquivos na área de stage e os que foram salvos no último commit
+git diff --cached
+git diff --staged
+
+# mostra as alterações do último commit
+git show
+
+# mostra as alterações feitas no commit sha1
+git show <sha1>
+
+# mostra os commits efetuados no branch corrente
+git log
+
+# mostra o log de um branch específico
+git log <branch>
+
+# coisas legais:
+
+# mostra o sha1 abreviado (utilizando 7 dígitos somente)
+git log --abbrev-commit
+
+# mostra cada commit em uma única linha
+git log --oneline
+
+# desenha um gráfico na forma de texto representando os commits
+git log --graph
+
+# adiciona ref names nos commits
+git log --decorate
+```
+
+## Salvando o trampo
+
+```sh
+# faz commit mostrando o editor para informar mensagem
+git commit
+
+# faz commit com a mensagem informada
+git commit -m "<message>"
+
+# executa git add antes de fazer o commit com a mensagem informada
+git commit -am  "<message>"
+
+# executa commit interativo com patch selection
+# ou seja, abre uma tela pra você escolher quais
+# alterações deve fazer parte do commit!
+git commit -p
+```
