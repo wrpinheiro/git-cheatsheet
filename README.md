@@ -119,3 +119,33 @@ git config --global color.ui auto
 # mostra todas as configurações
 git config -l
 ```
+
+# Branching
+
+```sh
+
+# mostra os branches existentes
+git branch
+
+# mostra todos os branches, inclusive os remotes
+git branch -a
+
+# cria um branch
+git branch <branch>
+
+# muda para outro branch 
+git checkout <branch>
+
+# cria um branch e já o torna o branch atual
+# é o mesmo que git branch + checkout
+git checkout -b <branch>
+
+# muda o nome do branch para novo-nome
+git branch -m <novo-nome>
+
+# apaga um branch
+git branch -d <branch>
+
+# apaga um branch mesmo que ainda não tenha sido feito o merge desse branch
+git branch -D <branch>
+```
