@@ -1,16 +1,7 @@
 # Git Cheat Sheet
 
-## Criação
 
-```sh
-# inicializa um repositório local vazio
-git init
-
-# clona um repositório remoto para o local
-git clone git@github.com:wrpinheiro/git-cheatsheet.git
-```
-
-## Quem sou eu?
+## Identificação
 
 ```sh
 # configura usuário global
@@ -21,6 +12,16 @@ git config --global user.email "joseph@climber.com"
 
 # remova a opção --global para fazer configurações somente no repositório local
 git config user.name "J. Climber" 
+```
+
+## Criação
+
+```sh
+# inicializa um repositório local vazio
+git init
+
+# clona um repositório remoto para o local
+git clone git@github.com:wrpinheiro/git-cheatsheet.git
 ```
 
 ## Operações comuns
@@ -104,4 +105,17 @@ git commit -am  "<message>"
 # ou seja, abre uma tela pra você escolher quais
 # alterações deve fazer parte do commit!
 git commit -p
+```
+
+## Outras configurações
+
+```sh
+# configura editor default (usado quando for executado um git commit, por exemplo)
+git config --global core.editor emacs
+
+# adicionar cor à sua vida! O default é false
+git config --global color.ui auto
+
+# mostra todas as configurações
+git config -l
 ```
