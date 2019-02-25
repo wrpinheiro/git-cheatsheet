@@ -170,6 +170,47 @@ git merge --abort
 git merge --continue
 ```
 
+## Rebasing
+
+```sh
+# faz o rebase baseado em um branch
+git rebase <branch>
+
+# operações que podem ser executadas no meio do rebase 
+# caso ocorra algum conflito
+#
+# - continue: permite seguir com o rebase e considerando
+#             as alterações na área de stage
+# - abort: aborta sem considerar qualquer alteração
+#          feita pelo rebase
+# - skip: permite pular um commit caso a aplicação desse
+#         commit não gerar alteração alguma no código
+git rebase --continue
+git rebase --abort
+git rebase --skip
+
+# faz o rebase interativa baseado em um branc
+git rebase -i <branch>
+
+# é a sintaxe geral do rebase interativo. Permite
+# fazer rebase utilizando os commits do próprio
+# branch.
+git rebase -i <commit>
+
+# Operações que podem ser realizadas no rebase interativo (também
+# pode ser utilizada a primeiro letra do comando):
+#
+# pick: aplica o commit
+# rework: permite alterar a mensagem do commit
+# edit: permite editar o commit
+# squash: junta essa commit no alterior e permite alterar
+#         a mensagem do commit
+# fixup: semelhante ao squash mas descarta a mensagem do 
+#        commit atual
+# exec: permite executar um comando nesse commit
+# drop: descarta o commit
+```
+
 ## Desfazendo cacas
 
 ```sh
@@ -178,7 +219,7 @@ git merge --continue
 git commit --amend
 
 # retira a versão do arquivo da área de stage (é o oposto do git add)
-git reset HEAD <arquivo
+git reset HEAD <arquivo>
 
 # desfaz as alterações do arquivo no diretório de trabalho
 git checkout -- <arquivo>
@@ -222,3 +263,4 @@ git checkout meu_branch
 git reset --soft B
 git commit -m "novo commit C+D+E"  #### 😎 nice!
 ```
+
