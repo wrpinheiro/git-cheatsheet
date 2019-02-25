@@ -45,7 +45,7 @@ git mv <source> <target>
 # apaga um arquivo
 git rm <arquivo>
 
-# remove um arquivo do índice mas não remove do diretório de trabalho
+# remove um arquivo área de stage mas não remove do diretório de trabalho
 git rm --cached <arquivo>
 ```
 
@@ -120,7 +120,7 @@ git config --global color.ui auto
 git config -l
 ```
 
-# Branching
+## Branching
 
 ```sh
 
@@ -168,4 +168,57 @@ git merge --abort
 
 # prossegue com o merge após ocorrer algum conflito
 git merge --continue
+```
+
+## Desfazendo cacas
+
+```sh
+# permite alterar o último commit, tanto mensagem
+# quanto arquivos que estão na área de stage
+git commit --amend
+
+# retira a versão do arquivo da área de stage (é o oposto do git add)
+git reset HEAD <arquivo
+
+# desfaz as alterações do arquivo no diretório de trabalho
+git checkout -- <arquivo>
+```
+
+## Hostilizando com Reset
+
+```sh
+# faz com que o branch atual (branch apontado pelo HEAD) aponte 
+# para um commit em questão, sem alterar o índice dos arquivos 
+# que estão na área de stage e sem alterar o que está no diretório
+# de trabalho. Essa operação não causa perda de dados!
+#
+# Dica: git reset --soft HEAD~ é a operação inversa ao git commit
+git reset --soft <commit>
+
+# faz com que o branch atual aponte para o commit em questão, altera
+# o índice de arquivos na área de stage e não altera o diretório
+# de trabalho. Essa operação também não causa perda de dados.
+# O parâmetro `--mixed` é opcional.
+git reset [--mixed] <commit>: move HEAD e também altera o índice
+
+# faz com que o branch atual aponte para o commit em questão, altera
+# o índice de arquivos na área de stage e altera os arquivos no
+# diretório de trabalho. CUIDADO, essa operação pode causar perda de
+# dados.
+git reset --hard <commit>: altera HEAD, índice e o diretório de 
+
+# DICA master: você pode juntar vários commits em um só utilizando
+# o reset (essa operação se chama squash). Siga o exemplo abaixo.
+#
+# Suponha que tenhamos a seguinte sequência de commits:
+#
+#                meu_branch
+#                     |
+#                     v
+# A <- B <- C <- D <- E
+#
+# e vamos juntar os commits C, D e E.
+git checkout meu_branch
+git reset --soft B
+git commit -m "novo commit C+D+E"  #### 😎 nice!
 ```
