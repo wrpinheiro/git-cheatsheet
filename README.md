@@ -264,3 +264,51 @@ git reset --soft B
 git commit -m "novo commit C+D+E"  #### 😎 nice!
 ```
 
+## Trabalhando com repositórios remotos
+
+```sh
+# clona um repositório remoto para o local (você já viu isso antes 😊)
+git clone git@github.com:wrpinheiro/git-cheatsheet.git
+
+# baixa o conteúdo do repositório remoto `remote-name`. Os branches
+# do repositório remoto podem ser referenciados pelos nomes:
+#
+# <remote-name>/<branch-name>
+#
+# Ex.: git log origin/master
+git fetch <remote-name>
+
+# baixa o conteúdo de `branch-name` do repositório remoto
+# `remote-name` e faz merge no branch atual
+git pull <remote-name> <branch-name>
+
+# faz o mesmo que o anterior porém utiliza as informações
+# de vínculo do branch corrente com o branch remoto. Esse
+# comando causa um erro caso o branch atual não esteja 
+# vinculado com um branch remoto.
+# 
+# Vide comandos: `git push -u` e `git branch --set-upstream-to`
+# abaixo.
+git pull
+
+# faz push do branch atual no repositório `remote-name`
+# e vincula com o branch `branch-name`
+git push -u <remote-name> <branch-name>
+
+# mostra os remotes configurados. `origin` é o padrão
+git remote -v
+
+# adiciona um remote e usa `remote-name` para referenciá-lo
+git remote add <remote-name> <url>
+
+# remove o remote com nome `remote-name`
+git remote remove <remote-name>
+
+# altera a url do remote `remote-name`
+git remote set-url <remote-name> <url>
+
+# vincula o branch atual com o branch `branch-name`
+# no repositório remoto `remote-name`
+git branch --set-upstream-to=<remote-name>/<branch-name>
+```
+
