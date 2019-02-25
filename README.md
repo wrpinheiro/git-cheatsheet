@@ -28,7 +28,7 @@ git clone git@github.com:wrpinheiro/git-cheatsheet.git
 
 ```sh
 # adiciona um arquivo na área de stage
-git add <file>
+git add <arquivo>
 
 # adiciona todos os arquivos na área de stage
 git add --all
@@ -208,7 +208,7 @@ git rebase -i <branch>
 #        commit atual
 # exec: permite executar um comando nesse commit
 # drop: descarta o commit
-git rebase -i <commit>
+git rebase -i <sha1>
 ```
 
 ## Desfazendo cacas
@@ -234,19 +234,19 @@ git checkout -- <arquivo>
 # de trabalho. Essa operação não causa perda de dados!
 #
 # Dica: git reset --soft HEAD~ é a operação inversa ao git commit
-git reset --soft <commit>
+git reset --soft <sha1>
 
 # faz com que o branch atual aponte para o commit em questão, altera
 # o índice de arquivos na área de stage e não altera o diretório
 # de trabalho. Essa operação também não causa perda de dados.
 # O parâmetro `--mixed` é opcional.
-git reset [--mixed] <commit>: move HEAD e também altera o índice
+git reset [--mixed] <sha1>: move HEAD e também altera o índice
 
 # faz com que o branch atual aponte para o commit em questão, altera
 # o índice de arquivos na área de stage e altera os arquivos no
 # diretório de trabalho. CUIDADO, essa operação pode causar perda de
 # dados.
-git reset --hard <commit>: altera HEAD, índice e o diretório de 
+git reset --hard <sha1>: altera HEAD, índice e o diretório de 
 
 # DICA master: você pode juntar vários commits em um só utilizando
 # o reset (essa operação se chama squash). Siga o exemplo abaixo.
