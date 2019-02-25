@@ -195,10 +195,9 @@ git rebase -i <branch>
 # é a sintaxe geral do rebase interativo. Permite
 # fazer rebase utilizando os commits do próprio
 # branch.
-git rebase -i <commit>
-
-# Operações que podem ser realizadas no rebase interativo (também
-# pode ser utilizada a primeiro letra do comando):
+# 
+# As seguintes operações podem ser executadas no rebase
+# interativo (também pode ser usada a primeiro letra do comando):
 #
 # pick: aplica o commit
 # rework: permite alterar a mensagem do commit
@@ -209,6 +208,7 @@ git rebase -i <commit>
 #        commit atual
 # exec: permite executar um comando nesse commit
 # drop: descarta o commit
+git rebase -i <commit>
 ```
 
 ## Desfazendo cacas
