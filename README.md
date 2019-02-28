@@ -244,7 +244,7 @@ git reset --soft <sha1>
 # faz com que o branch atual aponte para o commit em questão, altera
 # o índice de arquivos na área de stage e não altera o diretório
 # de trabalho. Essa operação também não causa perda de dados.
-# O parâmetro `--mixed` é opcional.
+# O parâmetro --mixed é opcional.
 git reset [--mixed] <sha1>: move HEAD e também altera o índice
 
 # faz com que o branch atual aponte para o commit em questão, altera
@@ -275,7 +275,7 @@ git commit -m "novo commit C+D+E"  #### 😎 nice!
 # clona um repositório remoto para o local (você já viu isso antes 😊)
 git clone git@github.com:wrpinheiro/git-cheatsheet.git
 
-# baixa o conteúdo do repositório remoto `remote-name`. Os branches
+# baixa o conteúdo do repositório remoto remote-name. Os branches
 # do repositório remoto podem ser referenciados pelos nomes:
 #
 # <remote-name>/<branch-name>
@@ -283,8 +283,8 @@ git clone git@github.com:wrpinheiro/git-cheatsheet.git
 # Ex.: git log origin/master
 git fetch <remote-name>
 
-# baixa o conteúdo de `branch-name` do repositório remoto
-# `remote-name` e faz merge no branch atual
+# baixa o conteúdo de branch-name do repositório remoto
+# remote-name e faz merge no branch atual
 git pull <remote-name> <branch-name>
 
 # faz o mesmo que o anterior porém utiliza as informações
@@ -292,28 +292,28 @@ git pull <remote-name> <branch-name>
 # comando causa um erro caso o branch atual não esteja 
 # vinculado com um branch remoto.
 # 
-# Vide comandos: `git push -u` e `git branch --set-upstream-to`
+# Vide comandos: git push -u e git branch --set-upstream-to
 # abaixo.
 git pull
 
-# faz push do branch atual no repositório `remote-name`
-# e vincula com o branch `branch-name`
+# faz push do branch atual no repositório remote-name
+# e vincula com o branch branch-name
 git push -u <remote-name> <branch-name>
 
-# mostra os remotes configurados. `origin` é o padrão
+# mostra os remotes configurados. origin é o padrão
 git remote -v
 
-# adiciona um remote e usa `remote-name` para referenciá-lo
+# adiciona um remote e usa remote-name para referenciá-lo
 git remote add <remote-name> <url>
 
-# remove o remote com nome `remote-name`
+# remove o remote com nome remote-name
 git remote remove <remote-name>
 
-# altera a url do remote `remote-name`
+# altera a url do remote remote-name
 git remote set-url <remote-name> <url>
 
-# vincula o branch atual com o branch `branch-name`
-# no repositório remoto `remote-name`
+# vincula o branch atual com o branch branch-name
+# no repositório remoto remote-name
 git branch --set-upstream-to=<remote-name>/<branch-name>
 ```
 
