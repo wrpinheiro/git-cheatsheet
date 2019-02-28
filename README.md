@@ -223,6 +223,11 @@ git reset HEAD <arquivo>
 
 # desfaz as alterações do arquivo no diretório de trabalho
 git checkout -- <arquivo>
+
+# remove todos os arquivos que não estão sendo controlados pelo Git
+# a opção -n executa um dry-run mostrando todos os arquivos que
+# serão removidos. Para remover os arquivos utilize a opção -f
+git clean -n
 ```
 
 ## Hostilizando com Reset
