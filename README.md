@@ -1,5 +1,4 @@
-# Git Cheat Sheet
-
+# Git Cheatsheet
 
 ## Identificação
 
