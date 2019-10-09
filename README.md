@@ -35,6 +35,31 @@ git add --all
 # adicionar todos os arquivos no diretório corrente e subdiretórios na área de stage
 git add .
 
+# executa git add interativo com patch selection
+# ou seja, abre uma tela para selecionar quais partes do arquivo farão parte do commit
+git add -p <arquivo>
+ou
+git add --all -p 
+ou
+git add . -p
+
+#descrição de cada opção do git add -p (abreviatura de --patch)
+
+#y adiciona esse trecho para o próximo commit
+#n não adiciona esse trecho para o próximo commit
+#q quit; não adiciona esse trecho para o próximo commit e nenhum dos restantes
+#a adiciona esse trecho e todos os demais desse arquivo
+#d não adiciona esse trecho e nenhum dos demais desse arquivo
+#g selecionar um trecho para ir
+#/ pesquise um trecho utilizando regex
+#j deixe esse trecho indeciso e vá para o próximo trecho indeciso
+#J deixe esse trecho indeciso e veja o próximo trecho
+#k deixa esse trecho indeciso e veja o trecho indeciso anterior
+#K deixe esse trecho indeciso e veja o trecho anterior
+#s divida esse trecho em trechos menores
+#e editar manualmente esse trecho
+#? help; mostrar todas essas descrições acima
+
 # mostra o status atual dos arquivos no diretório de trabalho na área de stage
 git status
 
