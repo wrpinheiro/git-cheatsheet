@@ -299,6 +299,19 @@ git pull
 # e vincula com o branch branch-name
 git push -u <remote-name> <branch-name>
 
+# útil para a seguinte situação:
+# você envia um branch local para o repositório remoto, exemplo: origin/feature1
+# mas ai você atualiza sua branch local master e precisa fazer um rebase na feature1 local 
+# quando fazer um push de novo para origin/feature1 dará erro, o git dirá
+# que sua branch está atrás da branch remoto
+# o comando abaixo verifica se há modificações no branch remoto que você não tenha
+# e atualiza o branch
+
+# se o dev usar o comando -f ou --force a branch origin/feature1 será substituida pela 
+# local que está sendo enviada, apagando possiveis alterações que esse branch (origin/feature1) possa ter recebido
+
+git push --force-with-lease <remote-name> <branch-name>
+
 # mostra os remotes configurados. origin é o padrão
 git remote -v
 
