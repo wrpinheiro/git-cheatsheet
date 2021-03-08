@@ -1,38 +1,38 @@
 # Git Cheatsheet
 
-## Identificação
+## Identification
 
 ```sh
-# configura usuário global
+# global user's name
 git config --global user.name "Joseph Climber"
 
-# configura email global
+# global user's email
 git config --global user.email "joseph@climber.com"
 
-# remova a opção --global para fazer configurações somente no repositório local
+# remove --global flag to set values for the local repository
 git config user.name "J. Climber" 
 ```
 
-## Criação
+## Clone & Initialization
 
 ```sh
-# inicializa um repositório local vazio
+# init an empty local repository
 git init
 
-# clona um repositório remoto para o local
+# clone a remote repository into a local directory
 git clone git@github.com:wrpinheiro/git-cheatsheet.git
 ```
 
-## Operações comuns
+## Frequently used operations
 
 ```sh
-# adiciona um arquivo na área de stage
+# add a file to the stage area (changes in the stage area will be persisted in the next commit)
 git add <arquivo>
 
-# adiciona todos os arquivos na área de stage
+# add all changed files to the stage area
 git add --all
 
-# adicionar todos os arquivos no diretório corrente e subdiretórios na área de stage
+# add all files in the currenty directory and its subdirectories to the stage area
 git add .
 
 # executa git add interativo com patch selection
@@ -60,20 +60,20 @@ git add . -p
 #e editar manualmente esse trecho
 #? help; mostrar todas essas descrições acima
 
-# mostra o status atual dos arquivos no diretório de trabalho na área de stage
+# show the changes in the working directory and the stage area
 git status
 
-# move um arquivo
+# move a file
 git mv <source> <target>
 
-# apaga um arquivo
+# remove a file
 git rm <arquivo>
 
-# remove um arquivo área de stage mas não remove do diretório de trabalho
+# remove a file in the stage area but doesn't change the file in the working dir
 git rm --cached <arquivo>
 ```
 
-## Visualizando as alterações 
+## Showing code changes
 
 ```sh
 # mostra as diferenças entre os arquivos no diretório de trabalho e na área de stage
@@ -113,7 +113,7 @@ git log --graph
 git log --decorate
 ```
 
-## Salvando o trampo
+## Saving the work
 
 ```sh
 # faz commit mostrando o editor para informar mensagem
@@ -131,7 +131,7 @@ git commit -am  "<message>"
 git commit -p
 ```
 
-## Outras configurações
+## Other settings
 
 ```sh
 # configura editor default (usado quando for executado um git commit, por exemplo)
@@ -235,7 +235,7 @@ git rebase -i <branch>
 git rebase -i <sha1>
 ```
 
-## Desfazendo cacas
+## Undoing things
 
 ```sh
 # permite alterar o último commit, tanto mensagem
@@ -254,7 +254,7 @@ git checkout -- <arquivo>
 git clean -n
 ```
 
-## Hostilizando com Reset
+## Reseting
 
 ```sh
 # faz com que o branch atual (branch apontado pelo HEAD) aponte 
@@ -293,7 +293,7 @@ git reset --soft B
 git commit -m "novo commit C+D+E"  #### 😎 nice!
 ```
 
-## Trabalhando com repositórios remotos
+## Working with remote repositories
 
 ```sh
 # clona um repositório remoto para o local (você já viu isso antes 😊)
@@ -324,6 +324,19 @@ git pull
 # e vincula com o branch branch-name
 git push -u <remote-name> <branch-name>
 
+# útil para a seguinte situação:
+# você envia um branch local para o repositório remoto, exemplo: origin/feature1
+# mas ai você atualiza sua branch local master e precisa fazer um rebase na feature1 local 
+# quando fazer um push de novo para origin/feature1 dará erro, o git dirá
+# que sua branch está atrás da branch remoto
+# o comando abaixo verifica se há modificações no branch remoto que você não tenha
+# e atualiza o branch
+
+# se o dev usar o comando -f ou --force a branch origin/feature1 será substituida pela 
+# local que está sendo enviada, apagando possiveis alterações que esse branch (origin/feature1) possa ter recebido
+
+git push --force-with-lease <remote-name> <branch-name>
+
 # mostra os remotes configurados. origin é o padrão
 git remote -v
 
@@ -340,4 +353,3 @@ git remote set-url <remote-name> <url>
 # no repositório remoto remote-name
 git branch --set-upstream-to=<remote-name>/<branch-name>
 ```
-
